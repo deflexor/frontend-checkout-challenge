@@ -1,0 +1,425 @@
+:root {
+  --bg: #f6f6f4;
+  --surface: #ffffff;
+  --fg: #1f2328;
+  --muted: #67707c;
+  --border: #d9dde3;
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --danger: #b42318;
+  --success: #067647;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 24px 0 16px;
+}
+
+h2 {
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+}
+
+.container {
+  max-width: 1040px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+/* Шапка */
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+}
+
+.header__logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.header__cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--fg);
+  text-decoration: none;
+  padding: 8px 4px;
+}
+
+.header__badge {
+  min-width: 24px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Карточки и панели */
+.products {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.card,
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product__title {
+  margin: 0;
+}
+
+.product__description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+.product__price {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.product__stock {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Кнопки */
+.btn {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) {
+  border-color: var(--muted);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.btn--step {
+  min-width: 44px;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+.btn--link {
+  min-height: 32px;
+  padding: 4px 8px;
+  border: none;
+  background: none;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Корзина */
+.cart {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cart-item__info p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.cart-item__controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepper__value {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.cart-item__total {
+  font-weight: 700;
+  margin: 0;
+  min-width: 96px;
+  text-align: right;
+}
+
+.total {
+  font-size: 1.1rem;
+}
+
+/* Формы */
+form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+form legend {
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+  max-width: 420px;
+}
+
+.field label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.field input {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font: inherit;
+  background: var(--surface);
+}
+
+.field input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.field-error {
+  margin: 0;
+  color: var(--danger);
+  font-size: 0.85rem;
+}
+
+.field-row {
+  display: flex;
+  gap: 12px;
+}
+
+.field-row .field {
+  flex: 1;
+  min-width: 0;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.choice input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+.choice--nested {
+  margin-left: 24px;
+}
+
+/* Итоги и сообщения */
+.summary {
+  margin-bottom: 16px;
+}
+
+.summary p {
+  margin: 4px 0;
+}
+
+.banner {
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 12px 0;
+}
+
+.banner--error {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: #fef3f2;
+}
+
+.banner--success {
+  border-color: var(--success);
+  color: var(--success);
+  background: #ecfdf3;
+}
+
+.banner__action {
+  margin-left: 12px;
+}
+
+.loader {
+  color: var(--muted);
+}
+
+/* Страница заказа */
+.order-items {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.order-items li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Диалог оплаты */
+.dialog {
+  position: fixed;
+  inset: 0;
+  background: rgb(31 35 40 / 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 20;
+}
+
+.dialog__panel {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 20px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.dialog__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.dialog__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+/* Узкие экраны */
+@media (max-width: 480px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-item {
+    flex-direction: column;
+  }
+
+  .cart-item__controls {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .field-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .dialog__actions .btn {
+    flex: 1;
+  }
+}
