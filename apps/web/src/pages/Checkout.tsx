@@ -225,7 +225,8 @@ export function CheckoutPage() {
                         type="radio"
                         name="pickupPointId"
                         checked={
-                          form.pickupPointId === point.id || (form.pickupPointId === '' && index === 0)
+                          form.pickupPointId === point.id ||
+                          (form.pickupPointId === '' && index === 0)
                         }
                         onChange={() => set('pickupPointId', point.id)}
                       />
